@@ -41,6 +41,12 @@ public class Main {
     public static final HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
 
     public static SimpleColor getColor(double x, double y) {
+        if (P1.isPointDownOfParabola(x, y)) {
+            return SimpleColor.YELLOW;
+        }
+        if (!L1.isPointAboveLine(x, y)) {
+            return SimpleColor.BLUE;
+        }
 
         return SimpleColor.WHITE;
     }
