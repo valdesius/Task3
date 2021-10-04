@@ -3,6 +3,11 @@ package valdes.inc.com.company;
 import java.util.Scanner;
 
 public class Main {
+    public static final Line L1 = new Line(-5, 0, 2);
+    public static final Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
+    public static final Parabola P2 = new Parabola(-2, 1, 1);
+    public static final HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
+
 
     public static void main(String[] args) {
         Point p1 = new Point(-6, -6);
@@ -27,19 +32,19 @@ public class Main {
         System.out.println("(" + p7.x + ", " + p7.y + ") -->" + getColor(p7.x, p7.y));
     }
 
-    public static final Line L1 = new Line(-5, 0, 2);
-    public static final Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
-    public static final Parabola P2 = new Parabola(-2, 1, 1);
-    public static final HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
-
     public static double readDouble(String name) {
         Scanner in = new Scanner(System.in);
         System.out.printf("input %s = ", name);
-        return in.nextDouble();
+        try {
+            in.nextDouble();
+        } catch (Exception e) {
+            System.out.print("Invalid data");
+            System.exit(1);
+        }
+       return 0;
     }
 
     public static SimpleColor getColor(double x, double y) {
-
         if (P1.isPointDownOfParabola(x, y)) {
             return SimpleColor.YELLOW;
         }
@@ -57,6 +62,4 @@ public class Main {
         }
         return SimpleColor.WHITE;
     }
-
-
 }
