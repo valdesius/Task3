@@ -12,12 +12,7 @@ public class Parabola {
         this.a = a;
     }
 
-    /**
-     * Проверяет, находится ли точка (x, y) справа
-     * (снизу, если повернуть изобюражение на 90 градусов
-     * против часовой стрелки)
-     * от параболы
-     */
+
     public boolean isPointDownOfParabola(double x, double y) {
         return y < a * Math.pow(x - x0, 2) + y0;
     }

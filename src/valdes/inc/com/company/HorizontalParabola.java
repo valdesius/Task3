@@ -11,12 +11,6 @@ public class HorizontalParabola {
         this.a = a;
     }
 
-    /**
-     * Проверяет, находится ли точка (x, y) справа
-     * (сверху, если повернуть изобюражение на 90 градусов
-     * против часовой стрелки)
-     * от параболы
-     */
     public boolean isPointRightOfParabola(double x, double y) {
         return x > a * Math.pow(y - y0, 2) + x0;
     }

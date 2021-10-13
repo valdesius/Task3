@@ -11,9 +11,6 @@ public class Line {
         this.a = a;
     }
 
-    /**
-     * Проверяет, находится ли точка (x, y) ниже линии
-     */
     public boolean isPointAboveLine(double x, double y) {
         return y < a * (x - x0) + y0;
     }
