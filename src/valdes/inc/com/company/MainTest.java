@@ -10,13 +10,13 @@ class MainTest {
         System.out.println("Tests: ");
 
         printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
-        printColorForPoint(3,4);
+        printColorForPoint(6,7);
+        printColorForPoint(2,1);
+        printColorForPoint(3,8);
+        printColorForPoint(3,9);
+        printColorForPoint(3,3);
+        printColorForPoint(7,4);
+        printColorForPoint(4,4);
     }
 
     @Test
