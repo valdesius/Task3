@@ -26,7 +26,7 @@ public class Main {
         Point p6 = new Point(4, 0);
         System.out.println("(" + p6.x + ", " + p6.y + ") -->" + getColor(p6.x, p6.y));
 
-        Point p7 = new Point(readDouble("x"), readDouble("y"));
+        Point p7 = new Point(readCoordinate("x"), readCoordinate("y"));
         System.out.println("(" + p7.x + ", " + p7.y + ") -->" + getColor(p7.x, p7.y));
 
     }
@@ -35,10 +35,21 @@ public class Main {
         System.out.println(getColor(x, y));
     }
 
-    public static double readDouble(String name) {
+    public static double readCoordinate(String name) {
+        int coordinate = 0;
         Scanner in = new Scanner(System.in);
         System.out.printf("input %s = ", name);
-        return in.nextDouble();
+        try {
+            coordinate = in.nextInt();
+            if (coordinate < -10 || coordinate > 10) {
+                System.out.println("Not format for task");
+                coordinate = in.nextInt();
+            }
+        } catch (Exception e) {
+            System.out.print("Error... ");
+            System.exit(1);
+        }
+        return coordinate;
     }
 
 }
