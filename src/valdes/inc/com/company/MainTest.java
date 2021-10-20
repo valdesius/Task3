@@ -1,29 +1,29 @@
 package valdes.inc.com.company;
 
-import org.junit.jupiter.api.Test;
-import static valdes.inc.com.company.Main.printColorForPoint;
-
 class MainTest {
+    private static final Picture picture = new Picture();
 
-    @Test
-    void main() {
-        System.out.println("Tests: ");
-
-        printColorForPoint(3,4);
-        printColorForPoint(6,7);
-        printColorForPoint(2,1);
-        printColorForPoint(3,8);
-        printColorForPoint(3,9);
-        printColorForPoint(3,3);
-        printColorForPoint(7,4);
-        printColorForPoint(4,4);
-    }
-
-    @Test
-    void readDouble() {
-    }
-
-    @Test
-    void getColor() {
+    public boolean testMain() {
+        if (picture.getColor(-9, -9) != SimpleColor.YELLOW) {
+            System.out.println("The test was not passed");
+            return false;
+        } else if (picture.getColor(0, 0) != SimpleColor.WHITE) {
+            System.out.println("The test was not passed");
+            return false;
+        } else if (picture.getColor(0, -3) != SimpleColor.WHITE) {
+            System.out.println("The test was not passed");
+            return false;
+        } else if (picture.getColor(-1, 4) != SimpleColor.BLUE) {
+            System.out.println("The test was not passed");
+            return false;
+        } else if (picture.getColor(-8, -1) != SimpleColor.BLUE) {
+            System.out.println("The test was not passed");
+            return false;
+        } else if (picture.getColor(-5, -9) != SimpleColor.YELLOW) {
+            System.out.println("The test was not passed");
+            return false;
+        } else {
+            return true;
+        }
     }
 }
