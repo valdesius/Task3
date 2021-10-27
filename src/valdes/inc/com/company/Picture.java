@@ -1,5 +1,9 @@
 package valdes.inc.com.company;
 
+import valdes.inc.com.company.figures.HorizontalParabola;
+import valdes.inc.com.company.figures.Line;
+import valdes.inc.com.company.figures.Parabola;
+
 public class Picture {
     public static final Line L1 = new Line(-5, 0, 2);
     public static final Parabola P1 = new Parabola(-6, -5, -1.0 / 4);

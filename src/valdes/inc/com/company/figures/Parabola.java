@@ -1,4 +1,4 @@
-package valdes.inc.com.company;
+package valdes.inc.com.company.figures;
 
 
 public class Parabola {
