@@ -7,10 +7,10 @@ import valdes.inc.com.company.figures.Parabola;
 import java.util.Scanner;
 
 public class Main {
-    private static final Line L1 = new Line(-5, 0, 2);
-    private static final Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
-    private static final Parabola P2 = new Parabola(-2, 1, 1);
-    private static final HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
+    private static Line L1 = new Line(-5, 0, 2);
+    private static Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
+    private static Parabola P2 = new Parabola(-2, 1, 1);
+    private static HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
 
     private static Picture picture = new Picture(L1, P1, P2, HP1);
     private static MainTest test = new MainTest();
