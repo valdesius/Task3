@@ -5,12 +5,19 @@ import valdes.inc.com.company.figures.Line;
 import valdes.inc.com.company.figures.Parabola;
 
 public class Picture {
-    public static final Line L1 = new Line(-5, 0, 2);
-    public static final Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
-    public static final Parabola P2 = new Parabola(-2, 1, 1);
-    public static final HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
+    private final Line L1;
+    private final Parabola P1;
+    private final Parabola P2;
+    private final HorizontalParabola HP1;
 
-    public static SimpleColor getColor(double x, double y) {
+    public Picture(Line L1, Parabola P1, Parabola P2, HorizontalParabola HP1) {
+        this.L1 = L1;
+        this.P1 = P1;
+        this.P2 = P2;
+        this.HP1 = HP1;
+    }
+
+    public SimpleColor getColor(double x, double y) {
         if (P1.isPointDownOfParabola(x, y)) {
             return SimpleColor.YELLOW;
         }
@@ -28,5 +35,4 @@ public class Picture {
         }
         return SimpleColor.WHITE;
     }
-
 }

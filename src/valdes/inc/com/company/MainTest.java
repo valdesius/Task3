@@ -1,9 +1,8 @@
 package valdes.inc.com.company;
 
 class MainTest {
-    private static final Picture picture = new Picture();
 
-    public boolean testMain() {
+    public boolean testMain(Picture picture) {
         if (picture.getColor(-9, -9) != SimpleColor.YELLOW) {
             System.out.println("The test was not passed");
             return false;
