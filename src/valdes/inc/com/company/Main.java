@@ -27,8 +27,6 @@ public class Main {
         double y = readNumber("Input Y: ");
 
         printColorForPoint(x, y);
-
-
     }
 
     private static void printColorForPoint(double x, double y) {
@@ -46,10 +44,11 @@ public class Main {
             if (coordinate < -10 || coordinate > 10) {
                 System.out.println("Not format for task");
                 coordinate = in.nextInt();
+                return readNumber("Input correct x, y ");
             }
         } catch (Exception e) {
             System.out.print("Error... ");
-            System.exit(1);
+            return readNumber("Input correct x, y ");
         }
         return coordinate;
     }
