@@ -4,21 +4,20 @@ import valdes.inc.com.company.figures.HorizontalParabola;
 import valdes.inc.com.company.figures.Line;
 import valdes.inc.com.company.figures.Parabola;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    private static Line L1 = new Line(-5, 0, 2);
-    private static Parabola P1 = new Parabola(-6, -5, -1.0 / 4);
-    private static Parabola P2 = new Parabola(-2, 1, 1);
-    private static HorizontalParabola HP1 = new HorizontalParabola(3, -1, 1.0 / 8);
 
-    private static Picture picture = new Picture(L1, P1, P2, HP1);
-    private static MainTest test = new MainTest();
+    public static void main(String[] args) throws MainTestNotPassedException {
+        Picture picture = new Picture(new Line(-5, 0, 2),
+                new Parabola(-6, -5, -1.0 / 4), new Parabola(-2, 1, 1),
+                new HorizontalParabola(3, -1, 1.0 / 8));
+        MainTest test = new MainTest();
 
-    public static void main(String[] args) {
         if (!test.testMain(picture)) {
-            System.out.println("Test error");
-            System.exit(1);
+            System.err.println("Test error");
+            throw new MainTestNotPassedException();
         } else {
             System.out.println("All tests completed");
         }
@@ -26,30 +25,30 @@ public class Main {
         double x = readNumber("Input X: ");
         double y = readNumber("Input Y: ");
 
-        printColorForPoint(x, y);
+        SimpleColor color = picture.getColor(x, y);
+        printColorForPoint(x, y, color);
     }
 
-    private static void printColorForPoint(double x, double y) {
+    private static void printColorForPoint(double x, double y, SimpleColor color) {
         System.out.printf("(%.2f, %.2f) --> ", x, y);
-        System.out.println(picture.getColor(x, y));
+        System.out.println(color);
     }
 
     private static double readNumber(String name) {
-        int coordinate = 0;
+        double number = 0;
         Scanner in = new Scanner(System.in);
         System.out.printf("input %s = ", name);
 
         try {
-            coordinate = in.nextInt();
-            if (coordinate < -10 || coordinate > 10) {
-                System.out.println("Not format for task");
-                coordinate = in.nextInt();
-                return readNumber("Input correct x, y ");
+            number = in.nextDouble();
+            if (number < -10 || number > 10) {
+                System.err.println("Not format for task. Number must be from -10 to 10...");
+                return readNumber("");
             }
-        } catch (Exception e) {
-            System.out.print("Error... ");
+        } catch (InputMismatchException ex) {
+            System.err.print("Error...It is not number...");
             return readNumber("Input correct x, y ");
         }
-        return coordinate;
+        return number;
     }
 }

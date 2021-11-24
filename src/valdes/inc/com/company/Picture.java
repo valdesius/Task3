@@ -5,32 +5,32 @@ import valdes.inc.com.company.figures.Line;
 import valdes.inc.com.company.figures.Parabola;
 
 public class Picture {
-    private final Line L1;
-    private final Parabola P1;
-    private final Parabola P2;
-    private final HorizontalParabola HP1;
+    private final Line line;
+    private final Parabola parabola1;
+    private final Parabola parabola2;
+    private final HorizontalParabola horizontalParabola;
 
-    public Picture(Line L1, Parabola P1, Parabola P2, HorizontalParabola HP1) {
-        this.L1 = L1;
-        this.P1 = P1;
-        this.P2 = P2;
-        this.HP1 = HP1;
+    public Picture(Line line, Parabola parabola1, Parabola parabola2, HorizontalParabola horizontalParabola) {
+        this.line = line;
+        this.parabola1 = parabola1;
+        this.parabola2 = parabola2;
+        this.horizontalParabola = horizontalParabola;
     }
 
     public SimpleColor getColor(double x, double y) {
-        if (P1.isPointDownOfParabola(x, y)) {
+        if (parabola1.isPointDownOfParabola(x, y)) {
             return SimpleColor.YELLOW;
         }
-        if (!L1.isPointAboveLine(x, y)) {
+        if (!line.isPointAboveLine(x, y)) {
             return SimpleColor.BLUE;
         }
         if (y < 6 && y > 3 && x > -2 && x < 4) {
             return SimpleColor.BLUE;
         }
-        if (!P2.isPointDownOfParabola(x, y)) {
+        if (!parabola2.isPointDownOfParabola(x, y)) {
             return SimpleColor.WHITE;
         }
-        if (HP1.isPointRightOfParabola(x, y)) {
+        if (horizontalParabola.isPointRightOfParabola(x, y)) {
             return SimpleColor.WHITE;
         }
         return SimpleColor.WHITE;
